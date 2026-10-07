@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f3f0ea">
+<title>Rizky & Erna · Another Year</title>
+<meta name="description" content="A small anniversary journal for Rizky & Erna.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f3f0ea;--ink:#171717;--muted:#77736d;--line:#d8d3ca;--dark:#151515}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:"DM Sans",sans-serif;line-height:1.55}
+a{color:inherit;text-decoration:none}button{font:inherit}
+.nav{position:fixed;z-index:20;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;padding:20px 5vw;background:linear-gradient(var(--bg),rgba(243,240,234,.72),transparent);backdrop-filter:blur(5px)}
+.brand{font-weight:600;letter-spacing:.08em;font-size:13px}.navlinks{display:flex;gap:25px;font-size:12px;text-transform:uppercase;letter-spacing:.08em}.navlinks a{opacity:.72}.navlinks a:hover{opacity:1}
+.hero{min-height:100svh;padding:150px 7vw 70px;display:flex;flex-direction:column;justify-content:space-between}.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.16em;color:var(--muted)}h1,h2,h3,p{margin-top:0}.hero h1{font-family:"Playfair Display",serif;font-weight:400;font-size:clamp(64px,12vw,170px);line-height:.86;letter-spacing:-.055em;max-width:900px;margin:0}.hero-bottom{display:flex;justify-content:space-between;gap:30px;align-items:end}.hero-copy{max-width:370px;font-size:15px;color:#595650}.date{font-size:12px;letter-spacing:.12em}
+.section{padding:130px 7vw}.section-head{display:grid;grid-template-columns:1fr 2fr;gap:40px;margin-bottom:65px}.section h2{font-family:"Playfair Display",serif;font-weight:400;font-size:clamp(42px,7vw,88px);line-height:.95;letter-spacing:-.04em;margin:0;max-width:850px}.intro{max-width:500px;color:#5f5b55;font-size:18px}
+.year-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:18px;align-items:end}.photo{width:100%;display:block;object-fit:cover;background:#ddd8cf;cursor:pointer}.photo{transition:transform .35s ease,filter .35s ease}.photo:active{filter:brightness(.92)}.year-grid .main{height:min(70vw,690px)}.year-grid .detail{height:min(48vw,470px)}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}.tile{position:relative;overflow:hidden}.tile img{height:100%;min-height:260px;transition:transform .7s cubic-bezier(.2,.7,.2,1)}.tile:hover img{transform:scale(1.025)}.tile:nth-child(1){grid-column:span 7;height:590px}.tile:nth-child(2){grid-column:span 5;height:430px;margin-top:120px}.tile:nth-child(3){grid-column:span 4;height:470px}.tile:nth-child(4){grid-column:span 8;height:540px}.tile:nth-child(5){grid-column:span 5;height:460px;margin-top:80px}.tile:nth-child(6){grid-column:span 7;height:560px}
+.caption{position:absolute;left:18px;bottom:15px;color:white;font-size:11px;text-transform:uppercase;letter-spacing:.12em;text-shadow:0 1px 10px #0008}
+.qa{border-top:1px solid var(--line)}.q{display:grid;grid-template-columns:1fr 2fr;gap:40px;padding:27px 0;border-bottom:1px solid var(--line)}.q small{text-transform:uppercase;letter-spacing:.12em;color:var(--muted)}.q strong{font-family:"Playfair Display",serif;font-size:28px;font-weight:400}
+.favs{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}.fav{padding:35px 25px;min-height:210px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}.fav b{display:block;font-family:"Playfair Display",serif;font-size:27px;font-weight:400;margin:30px 0 8px}.fav p{color:var(--muted);font-size:13px}
+.archive{display:grid;grid-template-columns:1fr 2fr;gap:40px}.archive-text{font-family:"Playfair Display",serif;font-size:clamp(35px,5vw,65px);line-height:1.03}.archive-list{border-top:1px solid var(--line)}.archive-list div{padding:18px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:20px}.archive-list span{color:var(--muted);font-size:12px}
+.ending{background:var(--dark);color:#f4f1eb;min-height:80svh;display:flex;align-items:center;justify-content:center;text-align:center;padding:100px 7vw}.ending h2{font-size:clamp(60px,12vw,170px);max-width:1000px}.ending p{color:#aaa;font-size:13px;letter-spacing:.1em;text-transform:uppercase}
+
+.years{display:flex;gap:8px;flex-wrap:wrap;margin:45px 0 25px;border-bottom:1px solid var(--line);padding-bottom:12px}
+.year-btn{border:0;background:transparent;color:var(--muted);padding:10px 15px;cursor:pointer;font-size:12px;letter-spacing:.1em}
+.year-btn.active{background:var(--ink);color:var(--bg);border-radius:999px}
+.archive-title{display:flex;justify-content:space-between;align-items:center;margin:22px 0 15px;font-family:"Playfair Display",serif;font-size:30px}
+#archiveCount{font-family:"DM Sans",sans-serif;font-size:11px;color:var(--muted);letter-spacing:.1em}
+.archive-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.archive-gallery img{width:100%;height:260px;object-fit:cover;display:block;cursor:pointer;background:#ddd8cf;transition:transform .5s ease}
+.archive-gallery img:hover{transform:scale(1.015)}
+.archive-empty{display:none;color:var(--muted);font-size:13px;padding:30px 0}
+.music{position:fixed;right:18px;bottom:18px;z-index:30;width:48px;height:48px;border:1px solid #aaa;background:#f3f0eadd;border-radius:50%;cursor:pointer;font-size:15px}.music.playing{background:#171717;color:#fff;border-color:#171717}
+.lightbox{position:fixed;inset:0;background:#111;z-index:50;display:none;align-items:center;justify-content:center;padding:45px}.lightbox.open{display:flex}.lightbox img{max-width:94vw;max-height:90vh;object-fit:contain}.close{position:absolute;top:18px;right:22px;color:white;background:none;border:0;font-size:34px;cursor:pointer}.prev,.next{position:absolute;top:50%;transform:translateY(-50%);background:none;color:white;border:0;font-size:35px;padding:25px;cursor:pointer}.prev{left:5px}.next{right:5px}.counter{position:absolute;bottom:20px;color:#aaa;font-size:11px;letter-spacing:.15em}
+.reveal{opacity:0;transform:translateY(25px);transition:opacity .8s ease,transform .8s ease}.reveal.visible{opacity:1;transform:none}
+@media(max-width:750px){
+ .nav{padding:17px 5vw}.navlinks{display:none}.hero{padding:125px 6vw 55px}.hero h1{font-size:20vw}.hero-bottom{display:block}.hero-copy{margin:22px 0}.section{padding:90px 6vw}.section-head{display:block;margin-bottom:40px}.section-head .intro{margin-top:25px}.year-grid{grid-template-columns:1fr}.year-grid .main,.year-grid .detail{height:115vw}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.tile:nth-child(n){grid-column:span 1;height:62vw;margin-top:0}.tile:nth-child(1),.tile:nth-child(4),.tile:nth-child(6){grid-column:span 2;height:105vw}.caption{font-size:9px;left:10px;bottom:9px}.q{grid-template-columns:1fr;gap:8px;padding:22px 0}.q strong{font-size:23px}.favs{grid-template-columns:1fr 1fr}.fav{min-height:175px;padding:22px 16px}.fav b{font-size:22px;margin:22px 0 5px}.archive{grid-template-columns:1fr;gap:45px}.archive-text{font-size:42px}.ending{min-height:70svh}.music{bottom:14px;right:14px}
+}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a class="brand" href="#home">RIZKYERINA</a>
+  <div class="navlinks">
+    <a href="#year">This Year</a><a href="#highlights">Highlights</a><a href="#byway">By The Way</a><a href="#favorites">Favorites</a><a href="#archive">Archive</a>
+  </div>
+</nav>
+
+<main>
+<section class="hero" id="home">
+  <div class="eyebrow">An anniversary journal · 06 / 10 / 2026</div>
+  <h1>Rizky<br>&amp; Erna</h1>
+  <div class="hero-bottom">
+    <p class="hero-copy">Another year, another collection of memories. Nothing too perfect. Just ours.</p>
+    <div class="date">06.10.2022 — 06.10.2026</div>
+  </div>
+</section>
+
+<section class="section reveal" id="year">
+  <div class="section-head">
+    <div class="eyebrow">01 · This year</div>
+    <div>
+      <h2>Another year passed.<br>Still us.</h2>
+      <p class="intro">Empat tahun. Banyak hal berubah, banyak hal tetap sama. Dan entah bagaimana, kita masih punya cerita baru untuk ditambahkan.</p>
+    </div>
+  </div>
+  <div class="year-grid">
+    <img class="photo main" data-photo="year-main" alt="This year">
+    <img class="photo detail" data-photo="year-detail" alt="A favorite moment">
+  </div>
+</section>
+
+<section class="section reveal" id="highlights">
+  <div class="section-head">
+    <div class="eyebrow">02 · The highlights</div>
+    <div><h2>Small moments.<br>Big deal.</h2></div>
+  </div>
+  <div class="grid" id="gallery"></div>
+</section>
+
+<section class="section reveal" id="byway">
+  <div class="section-head">
+    <div class="eyebrow">03 · By the way</div>
+    <div><h2>Things we probably<br>already know.</h2></div>
+  </div>
+  <div class="qa">
+    <div class="q"><small>Who talks more?</small><strong>Erna. Obviously.</strong></div>
+    <div class="q"><small>Who is more stubborn?</small><strong>Both. Humanity has suffered enough.</strong></div>
+    <div class="q"><small>Who says “terserah” but has an answer?</small><strong>Also both.</strong></div>
+    <div class="q"><small>Who would we choose again?</small><strong>Still each other.</strong></div>
+  </div>
+</section>
+
+<section class="section reveal" id="favorites">
+  <div class="section-head">
+    <div class="eyebrow">04 · Some favorite things</div>
+    <div><h2>The little things<br>we keep coming back to.</h2></div>
+  </div>
+  <div class="favs">
+    <div class="fav"><small>PLACE</small><b>Somewhere quiet</b><p>Tempat yang bikin kita lupa lihat jam.</p></div>
+    <div class="fav"><small>FOOD</small><b>Whatever we crave</b><p>Karena debat pilih makanan ternyata bagian dari hubungan.</p></div>
+    <div class="fav"><small>SONG</small><b>Our little soundtrack</b><p>Satu lagu, seribu versi kenangan.</p></div>
+    <div class="fav"><small>ONE THING</small><b>You.</b><p>Masih belum bosan. Aneh, tapi menyenangkan.</p></div>
+  </div>
+</section>
+
+<section class="section reveal" id="archive">
+  <div class="archive">
+    <div class="eyebrow">05 · The archive</div>
+    <div>
+      <div class="archive-text">A few years.<br>A lot of little memories.</div>
+
+      <div class="years" id="years">
+        <button class="year-btn active" data-year="2023">2023</button>
+        <button class="year-btn" data-year="2024">2024</button>
+        <button class="year-btn" data-year="2025">2025</button>
+        <button class="year-btn" data-year="2026">2026</button>
+      </div>
+
+      <div class="archive-title">
+        <span id="archiveYear">2023</span>
+        <span id="archiveCount"></span>
+      </div>
+
+      <div class="archive-gallery" id="archiveGallery"></div>
+      <p class="archive-empty" id="archiveEmpty">Belum ada foto untuk tahun ini.</p>
+    </div>
+  </div>
+</section>
+
+<section class="ending reveal">
+  <div>
+    <div class="eyebrow" style="color:#888">One more thing</div>
+    <h2>Still us.</h2>
+    <p>Rizky × Erna · 06.10.2022 — 06.10.2026</p>
+  </div>
+</section>
+</main>
+
+<button class="music" id="musicBtn" aria-label="Play music">♪</button>
+<audio id="audio" preload="none" src="images/music.mp3"></audio>
+
+<div class="lightbox" id="lightbox">
+  <button class="close" aria-label="Close">×</button>
+  <button class="prev" aria-label="Previous">‹</button>
+  <img id="full" alt="Memory">
+  <button class="next" aria-label="Next">›</button>
+  <div class="counter" id="counter"></div>
+</div>
+
+<script src="photos.generated.js"></script>
+<script>
+
+// YEAR ARCHIVE
+// Each year reads from images/2023/, images/2024/, images/2025/, images/2026/.
+// Edit the filename arrays below when you add/remove photos.
+const ARCHIVE = window.ARCHIVE_PHOTOS || {"2023":[],"2024":[],"2025":[],"2026":[]};
+
+const archiveGallery=document.getElementById("archiveGallery");
+const archiveYear=document.getElementById("archiveYear");
+const archiveCount=document.getElementById("archiveCount");
+const archiveEmpty=document.getElementById("archiveEmpty");
+
+function renderArchive(year){
+  archiveYear.textContent=year;
+  archiveGallery.innerHTML="";
+  const files=ARCHIVE[year]||[];
+  archiveCount.textContent=files.length ? `${files.length} FOTO` : "";
+  archiveEmpty.style.display=files.length ? "none" : "block";
+
+  files.forEach((src,i)=>{
+    const img=document.createElement("img");
+    img.src=src;
+    img.alt=`Memory ${year} ${i+1}`;
+    img.dataset.archive=true;
+    img.addEventListener("error",()=>img.remove());
+    archiveGallery.appendChild(img);
+  });
+}
+
+document.querySelectorAll(".year-btn").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    document.querySelectorAll(".year-btn").forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active");
+    renderArchive(btn.dataset.year);
+  });
+});
+
+renderArchive("2023");
+
+const gallery=document.getElementById("gallery");
+const labels=["Random days","Late nights","Little trips","Stupid moments","Good days","Remember this"];
+const photoFiles=Array.isArray(window.PHOTOS)?window.PHOTOS:[];
+const byName={};
+photoFiles.forEach((p,i)=>{const key=(p.key||p.name||"").toLowerCase();byName[key]=p;});
+
+function getPhoto(key,fallbackIndex){
+  const found=byName[key];
+  if(found) return typeof found==="string"?found:found.src;
+  const p=photoFiles[fallbackIndex];
+  return typeof p==="string"?p:(p?.src||"");
+}
+function setImg(img,src){
+  if(!src)return;
+  img.src=src.startsWith("http")?src:"images/"+src.replace(/^images\//,"");
+}
+document.querySelectorAll("[data-photo]").forEach((img,i)=>setImg(img,getPhoto(img.dataset.photo,i)));
+
+let highlight=photoFiles.filter(p=>{
+  const k=(typeof p==="string"?"":p.key||"").toLowerCase();
+  return k.startsWith("moment") || k.startsWith("highlight");
+});
+if(highlight.length<6) highlight=photoFiles.filter(p=>!["hero","cover","year-main","main","anniversary","year-detail","detail"].includes((typeof p==="string"?"":p.key||"").toLowerCase())).slice(0,6);
+highlight=highlight.slice(0,6);
+
+highlight.forEach((p,i)=>{
+  const src=typeof p==="string"?p:p.src;
+  const tile=document.createElement("figure");
+  tile.className="tile";
+  tile.innerHTML=`<img class="photo" src="${src.startsWith("http")?src:"images/"+src.replace(/^images\//,"")}" alt="${labels[i]}"><figcaption class="caption">${labels[i]}</figcaption>`;
+  tile.dataset.index=i;
+  gallery.appendChild(tile);
+});
+
+let allImages=[];
+function refreshLightboxImages(){
+  // Every website photo with a real source becomes previewable.
+  // This includes normal photos and dynamically rendered year-archive photos.
+  allImages=[...document.querySelectorAll("img.photo, .archive-gallery img")]
+    .filter(x=>x.src && !x.closest(".lightbox"));
+}
+refreshLightboxImages();
+const lightbox=document.getElementById("lightbox"), full=document.getElementById("full"), counter=document.getElementById("counter");
+let current=0;
+function openBox(img){
+  current=allImages.indexOf(img); if(current<0)current=0;
+  full.src=allImages[current].src; counter.textContent=`${current+1} / ${allImages.length}`;
+  lightbox.classList.add("open"); document.body.style.overflow="hidden";
+}
+function move(n){if(!allImages.length)return;current=(current+n+allImages.length)%allImages.length;full.src=allImages[current].src;counter.textContent=`${current+1} / ${allImages.length}`;}
+document.addEventListener("click",e=>{
+  const img=e.target.closest("img.photo, .archive-gallery img");
+  if(img){
+    refreshLightboxImages();
+    openBox(img);
+  }
+});
+document.querySelector(".close").onclick=()=>{lightbox.classList.remove("open");document.body.style.overflow=""};
+document.querySelector(".prev").onclick=()=>move(-1);document.querySelector(".next").onclick=()=>move(1);
+lightbox.addEventListener("click",e=>{if(e.target===lightbox)document.querySelector(".close").click()});
+document.addEventListener("keydown",e=>{if(!lightbox.classList.contains("open"))return;if(e.key==="Escape")document.querySelector(".close").click();if(e.key==="ArrowLeft")move(-1);if(e.key==="ArrowRight")move(1)});
+let sx=0;lightbox.addEventListener("touchstart",e=>sx=e.changedTouches[0].screenX,{passive:true});lightbox.addEventListener("touchend",e=>{let dx=e.changedTouches[0].screenX-sx;if(Math.abs(dx)>50)move(dx<0?1:-1)},{passive:true});
+
+const observer=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add("visible")}),{threshold:.12});
+document.querySelectorAll(".reveal").forEach(x=>observer.observe(x));
+
+const audio=document.getElementById("audio"),musicBtn=document.getElementById("musicBtn");
+let musicStarted=false;
+
+async function startMusic(){
+  if(musicStarted || !audio.paused) return;
+  try{
+    await audio.play();
+    musicStarted=true;
+    musicBtn.classList.add("playing");
+  }catch(e){
+    // Browser may reject playback if music.mp3 is missing or interaction is not accepted.
+  }
+}
+
+// Browser-safe autoplay: the first real touch/click/keyboard interaction
+// attempts to start the music. No annoying forced autoplay before interaction.
+async function firstInteraction(){
+  if(!musicStarted) await startMusic();
+  window.removeEventListener("pointerdown",firstInteraction);
+  window.removeEventListener("touchstart",firstInteraction);
+  window.removeEventListener("keydown",firstInteraction);
+}
+window.addEventListener("pointerdown",firstInteraction,{once:true,passive:true});
+window.addEventListener("touchstart",firstInteraction,{once:true,passive:true});
+window.addEventListener("keydown",firstInteraction,{once:true});
+
+musicBtn.addEventListener("click",async()=>{
+  try{
+    if(audio.paused){
+      await audio.play();
+      musicStarted=true;
+      musicBtn.classList.add("playing");
+    }else{
+      audio.pause();
+      musicBtn.classList.remove("playing");
+    }
+  }catch(e){
+    alert("Tambahkan file images/music.mp3 dulu.");
+  }
+});
+</script>
+</body>
+</html>
